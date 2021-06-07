@@ -7,11 +7,15 @@ const ClipBrowserRoot = styled.div`
   padding: 0px 100px;
   margin: 50px auto;
   max-width: 1400px;
+  @media screen and (max-width: 600px){
+    max-width: 600px;
+  }
   width: 100%;
 `;
 
 const ClipBrowserGrid = styled.div`
   max-width: 1400px;
+
   justify-self:center;
   width: 100%;
   display: grid;

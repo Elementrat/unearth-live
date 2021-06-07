@@ -13,6 +13,16 @@ const HomeGrid = styled.div`
     'nav content';
     grid-template-columns: 250px 1fr;
     grid-template-rows: 40px 1fr;
+
+    @media screen and (max-width: 600px){
+      grid-template-rows: 40px 100% 1fr;
+      grid-template-columns: 1fr;
+      grid-template-areas: 
+      'title'
+      'content'
+      'nav';
+    }
+
     width: 100%;
     height: 100vh;
     color: ${COLORS.lightText1};
