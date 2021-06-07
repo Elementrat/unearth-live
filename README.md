@@ -17,7 +17,7 @@ Finally, preview the experience running locally on your machine, at  [http://loc
 
 ## Technologies Used
 - [React](https://reactjs.org/)
-  - Provides modern FE framework enabling composable, declaratively defined components 
+  - Provides a modern FE framework enabling composable, declaratively defined components 
 - [Styled Components](https://github.com/styled-components/styled-components)
   - Enables composable, reusable, themable component styling via CSS-in-JS
 - [Next.JS](https://nextjs.org/)
