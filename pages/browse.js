@@ -6,7 +6,7 @@ export default function Browse() {
   return (
     <div>
       <Head>
-        <title>Browse</title>
+        <title>Unearth Live - Browse</title>
         <meta name="description" content="Record and share audio snippets" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

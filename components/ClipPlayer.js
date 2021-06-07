@@ -20,7 +20,6 @@ const ClipPlayer = () => {
   const selectedClipIndex = useSelector((state) => state.player.selectedClipIndex);
 
   const playClip = (currentClip) => {
-    console.log('playClip', playClip);
     setClip(currentClip);
     const audio = new Audio(currentClip.audioURL);
     audio.play();
@@ -41,7 +40,7 @@ const ClipPlayer = () => {
             <Head>
               <title>
                 Unearth -
-                {clip.name}
+                {` ${clip.name}`}
               </title>
             </Head>
             )}
