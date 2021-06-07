@@ -23,7 +23,7 @@ Finally, preview the experience running locally on your machine, at  [http://loc
 - [Next.JS](https://nextjs.org/)
   - Enables simple deployment story, and high performance user experience via build-time asset generation & SSR support
 - [Redux](https://redux.js.org/)
-  - Enables App-Wide state management, especially importantly, easy-to-reason-about transitions
+  - Enables app-wide state management, especially importantly, easy-to-reason-about transitions
 - [mediaDevices](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices)
   - Enables access to user devices (eg Microphone) via standardized & widely supported Browser API
 - [Vercel](https://vercel.com/)
