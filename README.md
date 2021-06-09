@@ -17,13 +17,13 @@ Finally, preview the experience running locally on your machine, at  [http://loc
 
 ## Technologies Used
 - [React](https://reactjs.org/)
-  - Provides modern FE framework enabling composable, declaratively defined components 
+  - Provides a modern FE framework enabling composable, declaratively defined components 
 - [Styled Components](https://github.com/styled-components/styled-components)
   - Enables composable, reusable, themable component styling via CSS-in-JS
 - [Next.JS](https://nextjs.org/)
   - Enables simple deployment story, and high performance user experience via build-time asset generation & SSR support
 - [Redux](https://redux.js.org/)
-  - Enables App-Wide state management, especially importantly, easy-to-reason-about transitions
+  - Enables app-wide state management, especially importantly, easy-to-reason-about transitions
 - [mediaDevices](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices)
   - Enables access to user devices (eg Microphone) via standardized & widely supported Browser API
 - [Vercel](https://vercel.com/)
