@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import COLORS from '../../utils/colors';
 import Nav from '../../components/Nav';
-import Title from '../../components/Title';
+import TitleBar from '../../components/TitleBar';
 import ClipRecorder from '../../components/ClipRecorder';
 import ClipPlayer from '../../components/ClipPlayer';
 
@@ -32,7 +32,7 @@ const HomeGrid = styled.div`
 const HomePage = () => (
   <>
     <HomeGrid>
-      <Title />
+      <TitleBar />
       <Nav />
       <ClipRecorder />
 

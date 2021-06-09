@@ -15,7 +15,6 @@ const ClipBrowserRoot = styled.div`
 
 const ClipBrowserGrid = styled.div`
   max-width: 1400px;
-
   justify-self:center;
   width: 100%;
   display: grid;
@@ -67,10 +66,15 @@ const ClipRoot = styled.div`
 
   :hover{
     color: white;
-    border: 1px solid rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.25);
     transform: translate(0px, -5px);
-
   }
+`;
+
+const ClipsStatusText = styled.div`
+  color: ${COLORS.lightText3};
+  opacity: ${(props) => (props.show ? '1' : '0')};
+  transition: opacity .5s ease;
 `;
 
 const Clip = ({ clip, index }) => {
@@ -80,7 +84,6 @@ const Clip = ({ clip, index }) => {
     const clipAudiobase64 = await fetch(clip.audioBlob);
     const clipBlob = await clipAudiobase64.blob();
     setPlaying(true);
-    console.log('Clip Duration', clip.duration);
     setTimeout(() => { setPlaying(false); }, clip.duration * 1000);
     const audioURL = URL.createObjectURL(clipBlob);
     const audio = new Audio(audioURL);
@@ -115,7 +118,10 @@ const ClipBrowser = () => {
     <>
       <ClipBrowserRoot>
         <h1>Latest Community Clips</h1>
-        {clips?.length === 0 && <span>No clips have been uploaded yet... Check back soon!</span>}
+        <ClipsStatusText show={clips?.length === 0}>
+          No clips have been uploaded recently...
+          Check back soon!
+        </ClipsStatusText>
         <ClipBrowserGrid>
           {clips && clips.map((clip, index) => <Clip clip={clip} index={index} />)}
         </ClipBrowserGrid>

@@ -6,7 +6,7 @@ import COLORS from '../utils/colors';
 
 const TitleRoot = styled.div`
   grid-area: title;
-  background-color: #111111;
+  background-color: #15121B;
   display: flex;
   align-items:center;
   padding: 15px;
@@ -64,7 +64,7 @@ const NavLink = ({ href, text }) => {
   );
 };
 
-const Title = () => (
+const TitleBar = () => (
   <TitleRoot>
     <TitleText>{STRINGS.APP_NAME}</TitleText>
     <NavLinkMenu>
@@ -73,4 +73,4 @@ const Title = () => (
     </NavLinkMenu>
   </TitleRoot>
 );
-export default Title;
+export default TitleBar;

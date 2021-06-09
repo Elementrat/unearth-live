@@ -5,7 +5,7 @@ import COLORS from '../utils/colors';
 import { startRecording, stopRecording } from '../utils/audio';
 import { setRecording } from '../reducers/recorder';
 import { saveClip } from '../reducers/user';
-import { selectClip } from '../reducers/player';
+import { clipPlayStarted, selectClip, clipPlayEnded } from '../reducers/player';
 
 const ContentRoot = styled.div`
     grid-area: content;
@@ -118,6 +118,10 @@ const RecordButton = () => {
         name: `${localID.slice(0, 5)}`,
       }));
       dispatch(selectClip(clips?.length));
+      dispatch(clipPlayStarted());
+      setTimeout(() => {
+        dispatch(clipPlayEnded());
+      }, duration * 1000);
       clipBlobs[localID] = audioBlob;
     } catch (e) {
       console.error('Unable to stop recording', e);

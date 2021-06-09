@@ -7,12 +7,7 @@ const COLORS = {
   lightText1: '#C8C5D3',
   lightText2: '#9E9AB2',
   lightText3: '#9792AC',
+  lightText4: '#736C8E',
 };
-
-// F3F2F5
-// 717EA1
-// 9792AC
-// 6F5F7F
-// 2C273A
 
 export default COLORS;

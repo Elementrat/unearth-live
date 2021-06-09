@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import COLORS from '../../utils/colors';
-import Title from '../../components/Title';
+import TitleBar from '../../components/TitleBar';
 import ClipBrowser from '../../components/ClipBrowser';
 
 const BrowseGrid = styled.div`
@@ -18,7 +18,7 @@ const BrowseGrid = styled.div`
 
 const BrowsePage = () => (
   <BrowseGrid>
-    <Title />
+    <TitleBar />
     <ClipBrowser />
   </BrowseGrid>
 );

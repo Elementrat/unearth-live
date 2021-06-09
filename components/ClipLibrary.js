@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import styled, { keyframes, css } from 'styled-components';
 import Image from 'next/image';
 import COLORS from '../utils/colors';
-import { selectClip } from '../reducers/player';
+import { clipPlayStarted, selectClip, clipPlayEnded } from '../reducers/player';
 import { beginClipUpload, finishClipUpload } from '../reducers/user';
 import { uploadClip } from '../utils/api-client';
 import { clipBlobs } from './ClipRecorder';
@@ -70,7 +70,7 @@ const ClipRoot = styled.div`
         height:2px;
         left: 0;
         right: 0;
-        animation: ${(props) => (props.selected ? css`${playbackIndicator} ${props.duration}s linear forwards` : css`none`)};
+        animation: ${(props) => (props.selected && props.playing ? css`${playbackIndicator} ${props.duration}s linear forwards` : css`none`)};
     }
 `;
 
@@ -108,7 +108,13 @@ const ClipDuration = styled.div`
     width: 1fr;
 `;
 
-const Clip = ({ clip, index, selected }) => {
+const ClipStatus = styled.div`
+    color: ${COLORS.lightText4};
+`;
+
+const Clip = ({
+  clip, index, selected, playing,
+}) => {
   const dispatch = useDispatch();
   const tryUpload = async () => {
     try {
@@ -130,9 +136,14 @@ const Clip = ({ clip, index, selected }) => {
     <ClipRoot
       key={clip.localID}
       selected={selected}
+      playing={playing}
       duration={clip.duration}
       onClick={() => {
         dispatch(selectClip(index));
+        dispatch(clipPlayStarted());
+        setTimeout(() => {
+          dispatch(clipPlayEnded());
+        }, clip.duration * 1000);
       }}
     >
 
@@ -156,6 +167,7 @@ const Clip = ({ clip, index, selected }) => {
 const ClipLibrary = () => {
   const clips = useSelector((state) => state.user.clips);
   const selectedClipIndex = useSelector((state) => state.player.selectedClipIndex);
+  const playing = useSelector((state) => state.player.playing);
 
   return (
     <ClipLibraryRoot>
@@ -163,12 +175,15 @@ const ClipLibrary = () => {
         Your Clips
       </ClipLibraryTitle>
       <ClipsRoot>
+        {clips?.length === 0 && <ClipStatus> No clips recorded yet</ClipStatus>}
+
         {clips.map((clip, index) => (
           <Clip
             key={clip.localID}
             clip={clip}
             index={index}
             selected={selectedClipIndex === index}
+            playing={playing}
           />
         ))}
       </ClipsRoot>

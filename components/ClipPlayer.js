@@ -18,6 +18,7 @@ const ClipPlayer = () => {
 
   const clips = useSelector((state) => state.user.clips);
   const selectedClipIndex = useSelector((state) => state.player.selectedClipIndex);
+  const playing = useSelector((state) => state.player.playing);
 
   const playClip = (currentClip) => {
     setClip(currentClip);
@@ -27,10 +28,10 @@ const ClipPlayer = () => {
 
   useEffect(() => {
     const currentClip = clips[selectedClipIndex];
-    if (currentClip) {
+    if (currentClip && playing) {
       playClip(currentClip);
     }
-  }, [selectedClipIndex]);
+  }, [selectedClipIndex, playing]);
 
   return (
     <PlayerRoot>
